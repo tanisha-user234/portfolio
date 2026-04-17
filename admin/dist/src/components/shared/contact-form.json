@@ -1,0 +1,36 @@
+{
+    "collectionName": "components_shared_contact_forms",
+    "info": {
+        "displayName": "ContactForm"
+    },
+    "options": {},
+    "attributes": {
+        "label": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "enumeration",
+            "enum": [
+                "email",
+                "password",
+                "text",
+                "textarea",
+                "checkbox",
+                "radio"
+            ]
+        },
+        "placeholder": {
+            "type": "string"
+        },
+        "required": {
+            "type": "boolean"
+        },
+        "rows": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

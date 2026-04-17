@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_shared_social_links",
+    "info": {
+        "displayName": "socialLinks"
+    },
+    "options": {},
+    "attributes": {
+        "platform": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string"
+        },
+        "icon": {
+            "type": "string"
+        },
+        "order": {
+            "type": "string"
+        },
+        "isExternal": {
+            "type": "boolean"
+        }
+    },
+    "config": {}
+}

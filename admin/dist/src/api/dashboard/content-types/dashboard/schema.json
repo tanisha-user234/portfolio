@@ -1,0 +1,55 @@
+{
+    "kind": "singleType",
+    "collectionName": "dashboards",
+    "info": {
+        "singularName": "dashboard",
+        "pluralName": "dashboards",
+        "displayName": "Dashboard"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Navbar": {
+            "type": "component",
+            "component": "dashboard.navbar",
+            "repeatable": false
+        },
+        "HeroSection": {
+            "type": "component",
+            "component": "dashboard.hero-section",
+            "repeatable": false
+        },
+        "ExperienceSection": {
+            "type": "component",
+            "component": "dashboard.experience",
+            "repeatable": false
+        },
+        "projectSection": {
+            "type": "component",
+            "component": "dashboard.project",
+            "repeatable": false
+        },
+        "skillsSection": {
+            "type": "component",
+            "component": "dashboard.skills",
+            "repeatable": true
+        },
+        "EducationSection": {
+            "type": "component",
+            "component": "dashboard.education",
+            "repeatable": true
+        },
+        "ContactSection": {
+            "type": "component",
+            "component": "dashboard.contact",
+            "repeatable": false
+        },
+        "footerSection": {
+            "type": "component",
+            "component": "dashboard.footer",
+            "repeatable": false
+        }
+    }
+}

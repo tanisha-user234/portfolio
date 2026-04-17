@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_dashboard_contacts",
+  "info": {
+    "displayName": "Contact"
+  },
+  "options": {},
+  "attributes": {
+    "sectionSubtitle": {
+      "type": "string"
+    },
+    "sectionTitle": {
+      "type": "string"
+    },
+    "sectionTitleHighlight": {
+      "type": "string"
+    },
+    "isLeftActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "ContactInfo": {
+      "type": "component",
+      "component": "shared.contact-info",
+      "repeatable": false
+    },
+    "isRightActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "ContactForm": {
+      "type": "component",
+      "component": "shared.contact-form",
+      "repeatable": true
+    },
+    "formButtonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

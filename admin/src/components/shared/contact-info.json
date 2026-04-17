@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_contact_infos",
+  "info": {
+    "displayName": "ContactInfo"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "highlightTitle": {
+      "type": "string"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "ContactMethods": {
+      "type": "component",
+      "component": "shared.contact-methods",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_dashboard_navbars",
+  "info": {
+    "displayName": "Navbar"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "mainText": {
+      "type": "string"
+    },
+    "navItems": {
+      "type": "component",
+      "component": "shared.nav-items",
+      "repeatable": true
+    },
+    "isSocialLinks": {
+      "type": "boolean",
+      "default": true
+    },
+    "SocialLinks": {
+      "type": "component",
+      "component": "shared.social-links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

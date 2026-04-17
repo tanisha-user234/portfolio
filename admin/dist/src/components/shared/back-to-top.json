@@ -1,0 +1,17 @@
+{
+    "collectionName": "components_shared_back_to_tops",
+    "info": {
+        "displayName": "backToTop"
+    },
+    "options": {},
+    "attributes": {
+        "show": {
+            "type": "boolean",
+            "default": true
+        },
+        "label": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

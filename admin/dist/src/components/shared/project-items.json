@@ -1,0 +1,30 @@
+{
+    "collectionName": "components_shared_project_items",
+    "info": {
+        "displayName": "project_items"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "category": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "tech": {
+            "type": "component",
+            "component": "shared.tech",
+            "repeatable": true
+        },
+        "type": {
+            "type": "string"
+        },
+        "size": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

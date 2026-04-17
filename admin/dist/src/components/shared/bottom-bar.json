@@ -1,0 +1,19 @@
+{
+    "collectionName": "components_shared_bottom_bars",
+    "info": {
+        "displayName": "bottomBar"
+    },
+    "options": {},
+    "attributes": {
+        "year": {
+            "type": "string"
+        },
+        "owner": {
+            "type": "string"
+        },
+        "builtWithText": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

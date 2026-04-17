@@ -1,0 +1,33 @@
+{
+    "collectionName": "components_shared_experiences",
+    "info": {
+        "displayName": "experience"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "company": {
+            "type": "string"
+        },
+        "period": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "location": {
+            "type": "string"
+        },
+        "color": {
+            "type": "string"
+        },
+        "tech": {
+            "type": "component",
+            "component": "shared.tech",
+            "repeatable": true
+        }
+    },
+    "config": {}
+}

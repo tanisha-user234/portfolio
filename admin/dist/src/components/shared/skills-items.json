@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_shared_skills_items",
+    "info": {
+        "displayName": "skills_items"
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "icon": {
+            "type": "string"
+        },
+        "skills": {
+            "type": "component",
+            "component": "shared.tech",
+            "repeatable": true
+        },
+        "color": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

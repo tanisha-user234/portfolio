@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_dashboard_hero_sections",
+  "info": {
+    "displayName": "Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "topBadgeIcon": {
+      "type": "string"
+    },
+    "topBadgeText": {
+      "type": "string"
+    },
+    "mainTitlePart1": {
+      "type": "string"
+    },
+    "mainTitleHighlight": {
+      "type": "string"
+    },
+    "maiTitlePart2": {
+      "type": "string"
+    },
+    "heroDescription": {
+      "type": "text"
+    },
+    "descriptionHighlight": {
+      "type": "string"
+    },
+    "primaryButtonLabel": {
+      "type": "string"
+    },
+    "primaryButtonUrl": {
+      "type": "string"
+    },
+    "secondaryButtonText": {
+      "type": "string"
+    },
+    "secondaryButtonUrl": {
+      "type": "string"
+    },
+    "stats": {
+      "type": "component",
+      "component": "shared.stats",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

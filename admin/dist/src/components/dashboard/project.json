@@ -1,0 +1,24 @@
+{
+    "collectionName": "components_dashboard_projects",
+    "info": {
+        "displayName": "Project"
+    },
+    "options": {},
+    "attributes": {
+        "sectionSubtitle": {
+            "type": "string"
+        },
+        "sectionTitle": {
+            "type": "string"
+        },
+        "sectionTitleHighLight": {
+            "type": "string"
+        },
+        "projects": {
+            "type": "component",
+            "component": "shared.project-items",
+            "repeatable": true
+        }
+    },
+    "config": {}
+}

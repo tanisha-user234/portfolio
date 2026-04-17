@@ -1,0 +1,31 @@
+{
+    "collectionName": "components_dashboard_footers",
+    "info": {
+        "displayName": "Footer"
+    },
+    "options": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "tagline": {
+            "type": "string"
+        },
+        "socialLinks": {
+            "type": "component",
+            "component": "shared.social-links",
+            "repeatable": true
+        },
+        "bottomBar": {
+            "type": "component",
+            "component": "shared.bottom-bar",
+            "repeatable": false
+        },
+        "backToTop": {
+            "type": "component",
+            "component": "shared.back-to-top",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}
