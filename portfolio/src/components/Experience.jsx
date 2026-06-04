@@ -3,10 +3,40 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, Rocket, Laptop, Target } from 'lucide-react';
 
 const Experience = ({data}) => {
-  console.log("Experience Section Data",data);
-  if(!data){
-    return null;
-  }
+  data = data || {};
+  const experiences = [
+    {
+      id: 1,
+      title: 'Software Engineer Intern',
+      company: 'NIIT Limited',
+      period: 'Jan 2026 - Present',
+      location: 'Gurugram, Haryana',
+      description: 'Shipped production UI components and full page sections for niit.com using Next.js. Designed and maintained Strapi CMS content types. Built and integrated REST APIs using Fastify.',
+      tech: ['Next.js', 'Fastify', 'Strapi CMS', 'PostgreSQL'],
+      color: '#3b82f6'
+    },
+    {
+      id: 2,
+      title: 'Flutter Intern',
+      company: 'Aquadsoft Software Solutions',
+      period: 'July 2025 - Sept 2025',
+      location: 'Remote',
+      description: 'Diagnosed and resolved UI and logic bugs that improved code stability and reduced reported defect count. Authored technical documentation for core Flutter concepts.',
+      tech: ['Flutter', 'Dart', 'BLoC', 'Provider'],
+      color: '#00d2ff'
+    },
+    {
+      id: 3,
+      title: 'Machine Learning Intern',
+      company: 'NIT Delhi',
+      period: 'June 2024 - July 2024',
+      location: 'New Delhi',
+      description: 'Built a supervised learning framework for multi-class cardiac disease detection on the PTB Diagnostic ECG Database. Delivered the highest classification accuracy using the LSTM-CNN hybrid architecture.',
+      tech: ['Python', 'SVM', 'KNN', 'LSTM-CNN'],
+      color: '#8b5cf6'
+    }
+  ];
+  
   const experienceList = data.experience && data.experience.length > 0 ? data.experience : experiences;
   const containerRef = React.useRef(null);
   const { scrollYProgress } = useScroll({

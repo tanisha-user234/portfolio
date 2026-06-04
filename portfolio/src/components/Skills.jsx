@@ -3,38 +3,37 @@ import { motion } from 'framer-motion';
 import { Code2, Server, Database, Smartphone, Layout, BrainCircuit, Cpu, Wifi, Monitor } from 'lucide-react';
 
 const Skills = ({data}) => {
-  if(!data){return null}
-  console.log("Skills section",data)
+  data = data || {};
   const skillCategories = [
     {
-      title: 'Current Focus',
+      title: 'Frontend Development',
       icon: <Layout size={24} />,
-      skills: ['Next.js', 'PostgreSQL', 'Fastify', 'Strapi', 'Node.js', 'React'],
+      skills: ['React', 'Next.js (SSR/SSG)', 'Tailwind CSS', 'TypeScript'],
       color: '#3b82f6'
     },
     {
-      title: 'Mobile Development',
-      icon: <Smartphone size={24} />,
-      skills: ['Flutter', 'Dart', 'Android Studio', 'BLoC', 'Provider', 'GetX'],
-      color: '#00d2ff'
-    },
-    {
-      title: 'Backend & Databases',
+      title: 'Backend & CMS',
       icon: <Server size={24} />,
-      skills: ['Node.js', 'Express.js', 'MongoDB', 'Firebase', 'SQLite', 'PostgreSQL'],
+      skills: ['Node.js', 'Fastify', 'Express.js', 'Strapi CMS', 'PostgreSQL', 'MongoDB', 'WebSockets'],
       color: '#8b5cf6'
     },
     {
-      title: 'Languages',
-      icon: <Code2 size={24} />,
-      skills: ['Java', 'Python', 'C++', 'C', 'JavaScript', 'TypeScript'],
-      color: '#ec4899'
+      title: 'Mobile App Development',
+      icon: <Smartphone size={24} />,
+      skills: ['Flutter (Dart)', 'Android Studio', 'Firebase', 'BLoC', 'Provider', 'SQLite'],
+      color: '#00d2ff'
     },
     {
-      title: 'Machine Learning',
+      title: 'AI & Machine Learning',
       icon: <BrainCircuit size={24} />,
-      skills: ['Supervised Models', 'LSTM', 'Hybrid LSTM-CNN', 'Data Analysis'],
+      skills: ['LangGraph', 'Multi-agent Systems', 'LSTM', 'Hybrid LSTM-CNN', 'Supervised Learning'],
       color: '#10b981'
+    },
+    {
+      title: 'Languages & Tools',
+      icon: <Code2 size={24} />,
+      skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'GitLab/Git'],
+      color: '#ec4899'
     }
   ];
 
@@ -76,16 +75,15 @@ const Skills = ({data}) => {
           <h2 style={{ fontSize: '14px', color: 'var(--accent-primary)', textTransform: 'uppercase', letterSpacing: '4px', marginBottom: '16px' }}>Technical Arsenal</h2>
           <h1 style={{ fontSize: '48px' }}>My <span className="gradient-text">Skills</span></h1>
         </motion.div>
-{/* the cms driven skills */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-          {data.map((category, i) => (
+          {(Array.isArray(data) && data.length > 0 ? data : skillCategories).map((category, i) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, rotateX: 90, scale: 0.8, y: 50 }}
               whileInView={{ opacity: 1, rotateX: 0, scale: 1, y: 0 }}
               animate={{ y: [0, -8, 0] }}
               viewport={{ once: true, margin: "-50px" }}
-              style={{ transformStyle: 'preserve-3d', transformOrigin: 'top center' }}
+              style={{ transformStyle: 'preserve-3d', transformOrigin: 'top center', padding: '32px' }}
               transition={{ 
                 opacity: { duration: 0.4, delay: i * 0.15 },
                 rotateX: { type: "spring", stiffness: 100, damping: 12, delay: i * 0.15 },
@@ -93,7 +91,6 @@ const Skills = ({data}) => {
                 y: { duration: 3 + (i % 2), repeat: Infinity, ease: "easeInOut" } 
               }}
               className="glow-card"
-              style={{ padding: '32px' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                 <div className="glass-effect" style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${category.color}88`, color: category.color, boxShadow: `0 0 15px ${category.color}40` }}>
@@ -103,70 +100,26 @@ const Skills = ({data}) => {
               </div>
 
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                {category.skills.map(skill => (
-                  <motion.span
-                    key={skill.id}
-                    whileHover={{ scale: 1.05, borderColor: category.color, background: `${category.color}22`, boxShadow: `0 0 10px ${category.color}60` }}
-                    className="glass-effect"
-                    style={{ 
-                      padding: '6px 14px', 
-                      fontSize: '13px', 
-                      borderRadius: '100px', 
-                      color: 'var(--text-primary)',
-                      fontWeight: '600',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    {skill.skill}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-          {skillCategories.map((category, i) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, rotateX: 90, scale: 0.8, y: 50 }}
-              whileInView={{ opacity: 1, rotateX: 0, scale: 1, y: 0 }}
-              animate={{ y: [0, -8, 0] }}
-              viewport={{ once: true, margin: "-50px" }}
-              style={{ transformStyle: 'preserve-3d', transformOrigin: 'top center' }}
-              transition={{ 
-                opacity: { duration: 0.4, delay: i * 0.15 },
-                rotateX: { type: "spring", stiffness: 100, damping: 12, delay: i * 0.15 },
-                scale: { type: "spring", stiffness: 100, damping: 12, delay: i * 0.15 },
-                y: { duration: 3 + (i % 2), repeat: Infinity, ease: "easeInOut" } 
-              }}
-              className="glow-card"
-              style={{ padding: '32px' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                <div className="glass-effect" style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${category.color}88`, color: category.color, boxShadow: `0 0 15px ${category.color}40` }}>
-                  {category.icon}
-                </div>
-                <h3 style={{ fontSize: '20px', color: 'var(--text-primary)' }}>{category.title}</h3>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                {category.skills.map(skill => (
-                  <motion.span
-                    key={skill}
-                    whileHover={{ scale: 1.05, borderColor: category.color, background: `${category.color}22`, boxShadow: `0 0 10px ${category.color}60` }}
-                    className="glass-effect"
-                    style={{ 
-                      padding: '6px 14px', 
-                      fontSize: '13px', 
-                      borderRadius: '100px', 
-                      color: 'var(--text-primary)',
-                      fontWeight: '600',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
+                {category.skills.map((skill, idx) => {
+                  const skillName = typeof skill === 'object' && skill !== null ? skill.skill : skill;
+                  return (
+                    <motion.span
+                      key={idx}
+                      whileHover={{ scale: 1.05, borderColor: category.color, background: `${category.color}22`, boxShadow: `0 0 10px ${category.color}60` }}
+                      className="glass-effect"
+                      style={{ 
+                        padding: '6px 14px', 
+                        fontSize: '13px', 
+                        borderRadius: '100px', 
+                        color: 'var(--text-primary)',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      {skillName}
+                    </motion.span>
+                  );
+                })}
               </div>
             </motion.div>
           ))}

@@ -45,53 +45,69 @@ const MagneticCard = ({ children, style, className, ...props }) => {
 };
 
 const Projects = ({data}) => {
-  if(!data){return null;}
+  data = data || {};
   const projects = [
     {
-      title: 'ChatterSphere',
-      category: 'Full-stack Chat App',
-      description: 'Real-time chat with Socket.io, contact management, and live messaging.',
-      tech: ['React', 'Node.js', 'Socket.io', 'PostgreSQL'],
+      title: 'niit.com',
+      category: 'Production Web Platform',
+      description: 'Improved page performance by implementing image optimization and auditing third-party library usage. Built and integrated a course detail API end-to-end.',
+      tech: ['Next.js', 'Strapi CMS', 'Fastify', 'Keycloak', 'Tailwind CSS'],
       type: 'web',
       size: 'large'
     },
     {
-      title: 'TaskMate Pro',
-      category: 'Mobile Productivity',
-      description: 'Task management with user authentication and local storage.',
-      tech: ['Flutter', 'Node.js', 'MongoDB'],
+      title: 'Learn for Jobs Platform',
+      category: 'Full-stack Platform',
+      description: 'Led UI design phase, built the Strapi CMS layer, and owned the complete authentication system implementing OTP-based login. Developed full grievance submission workflow.',
+      tech: ['Next.js', 'Strapi CMS', 'Node.js', 'PostgreSQL'],
+      type: 'web',
+      size: 'large'
+    },
+    {
+      title: 'AgentHire',
+      category: 'AI Platform',
+      description: 'Built a multi-agent AI interview platform with three specialized agents that conduct structured candidate assessments without human intervention.',
+      tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+      type: 'web',
+      size: 'medium'
+    },
+    {
+      title: 'AI Site Builder',
+      category: 'AI Tool',
+      description: 'Platform where users generate full website code from plain-text prompts. Shipped version history, live code editing, and auth system.',
+      tech: ['React', 'Node.js'],
+      type: 'web',
+      size: 'medium'
+    },
+    {
+      title: 'ChatterSphere',
+      category: 'Mobile App',
+      description: 'Full-stack real-time chat application with contact management, live messaging via Socket.IO, and daily conversation prompts.',
+      tech: ['Flutter', 'Node.js', 'PostgreSQL', 'Socket.IO'],
       type: 'mobile',
+      size: 'medium'
+    },
+    {
+      title: 'Dynamic Portfolio',
+      category: 'Web Portfolio',
+      description: 'Content-managed personal portfolio connecting a React frontend to a Strapi backend.',
+      tech: ['React', 'Strapi'],
+      type: 'web',
       size: 'small'
     },
     {
       title: 'ClickKart',
-      category: 'E-commerce',
-      description: 'Full e-commerce platform with cart, admin, and auth features.',
-      tech: ['Flutter', 'Express.js', 'MongoDB'],
+      category: 'Mobile E-commerce',
+      description: 'Full-stack e-commerce app with JWT-based authentication, add-to-cart functionality, order management, and admin panel.',
+      tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB'],
       type: 'mobile',
       size: 'small'
     },
     {
       title: 'Pocket Doc',
       category: 'Healthcare App',
-      description: 'Appointment booking, medicine cart, and user auth.',
-      tech: ['Java', 'Android Studio', 'SQLite'],
-      type: 'mobile',
-      size: 'small'
-    },
-    {
-      title: 'Journi',
-      category: 'Travel Guide',
-      description: 'Travel app with destination insights and user engagement.',
-      tech: ['Java', 'Firebase', 'Android Studio'],
-      type: 'mobile',
-      size: 'small'
-    },
-    {
-      title: 'Socio Lite',
-      category: 'Social Media',
-      description: 'Static Instagram front-page clone.',
-      tech: ['XML', 'Java', 'Android Studio'],
+      description: 'Android healthcare app for booking doctor appointments and browsing a medicine catalogue with offline access.',
+      tech: ['Java', 'XML', 'Android Studio', 'SQLite'],
       type: 'mobile',
       size: 'small'
     }
@@ -113,37 +129,30 @@ const Projects = ({data}) => {
           <h1 style={{ fontSize: '48px' }}>{data.sectionTitle ? data.sectionTitle : ''}Featured <span className="gradient-text">{data.sectionTitleHighlight?data.sectionTitleHighlight:''}Projects</span></h1>
         </motion.div>
 
-        {/* Sticky Stacking Cards Layout */}
+        {/* Restored Grid Layout */}
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '60px', /* Space between cards before they stack */
-          paddingBottom: '20vh'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+          gap: '32px'
         }}>
           {projectList.map((project, i) => {
             const isCMS = !!project.tech[0]?.skill;
             return (
               <MagneticCard
                 key={project.title}
-                initial={{ opacity: 0, y: 100 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: "-100px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="glow-card"
                 style={{
-                  position: 'sticky',
-                  top: `calc(15vh + ${i * 20}px)`, 
-                  padding: '40px',
+                  padding: '32px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  minHeight: '400px',
-                  maxWidth: '900px',
-                  margin: '0 auto',
-                  width: '100%',
-                  transformOrigin: 'top center',
-                  zIndex: i,
-                  boxShadow: '0 -10px 40px rgba(0,0,0,0.5)' 
+                  height: '100%',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}
               >
                 <div>
@@ -157,12 +166,12 @@ const Projects = ({data}) => {
                     </div>
                   </div>
                   
-                  <span style={{ fontSize: '13px', color: 'var(--accent-primary)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '800' }}>{project.category}</span>
-                  <h3 style={{ fontSize: '36px', marginBottom: '16px', marginTop: '8px', fontWeight: '800' }}>{project.title}</h3>
-                  <p style={{ color: 'var(--text-secondary)', margin: '20px 0', fontSize: '18px', maxWidth: '600px', lineHeight: '1.6' }}>{project.description}</p>
+                  <span style={{ fontSize: '12px', color: 'var(--accent-primary)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '800' }}>{project.category}</span>
+                  <h3 style={{ fontSize: '24px', marginBottom: '12px', marginTop: '8px', fontWeight: '800' }}>{project.title}</h3>
+                  <p style={{ color: 'var(--text-secondary)', margin: '16px 0', fontSize: '15px', lineHeight: '1.6' }}>{project.description}</p>
                 </div>
 
-                <div style={{ marginTop: '32px' }}>
+                <div style={{ marginTop: '24px' }}>
                   <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                     {project.tech.map((t, idx) => (
                       <span key={idx} style={{ fontSize: '13px', padding: '6px 16px', background: 'rgba(255,255,255,0.05)', borderRadius: '100px', color: 'var(--text-primary)', fontWeight: '500' }}>

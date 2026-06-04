@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Download, ExternalLink, Code, Laptop, Terminal, Cpu, Database, Server, Wifi } from 'lucide-react';
 
 const Hero = ({data}) => {
-  if(!data) return null;
+  data = data || {};
 //  console.log("Hero Section Data",data);
 
   const containerVariants = {
@@ -21,6 +21,12 @@ const Hero = ({data}) => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
+  const defaultStats = [
+    { id: 1, value: "3", label: "Internships" },
+    { id: 2, value: "8", label: "Full-stack Projects" },
+    { id: 3, value: "476", label: "GATE 2026 Score" }
+  ];
+  const statsList = data.stats && data.stats.length > 0 ? data.stats : defaultStats;
 
   return (
     <section id="home" className="section-padding" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
@@ -34,16 +40,15 @@ const Hero = ({data}) => {
           <motion.div variants={itemVariants} className="badge-wrapper" style={{ marginBottom: '24px' }}>
             <span className="glass-effect" style={{ padding: '8px 16px', borderRadius: '100px', fontSize: '14px', fontWeight: '600', color: 'var(--accent-primary)', border: '1px solid var(--border-active)' }}>
               ✨ {data.topBadgeText ? data.topBadgeText : 'Software Engineer Intern @ NIIT Limited'}
-              
             </span>
           </motion.div>
 
           <motion.h1 variants={itemVariants} style={{ fontSize: 'clamp(40px, 8vw, 84px)', marginBottom: '24px', lineHeight: '1.05' }}>
-            {data.mainTitlePart1 ? data.mainTitlePart1 : 'Elevating Ideas with'} <span className="gradient-text">{data.mainTitleHighlight ? data.mainTitleHighlight : 'Elegant Code'}</span>{data.mainTitlePart2 ? data.mainTitlePart2 : ''}.
+            {data.mainTitlePart1 ? data.mainTitlePart1 : 'Building AI-Driven Apps with'} <span className="gradient-text">{data.mainTitleHighlight ? data.mainTitleHighlight : 'Full-Stack Precision'}</span>{data.mainTitlePart2 ? data.mainTitlePart2 : ''}.
           </motion.h1>
 
           <motion.p variants={itemVariants} style={{ fontSize: 'clamp(18px, 2vw, 22px)', color: 'var(--text-secondary)', marginBottom: '40px', maxWidth: '650px' }}>
-            I'm <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>Tanisha Yadav</span>{data.heroDescription ? data.heroDescription : ''}, a full-stack developer and GATE qualifier passionate about building high-performance applications with <span className="gradient-text">{data.descriptionHighlight ? data.descriptionHighlight : ''}Flutter, Next.js, and Node.js</span>.
+            I'm <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>Tanisha Yadav</span>{data.heroDescription ? data.heroDescription : ', a full-stack developer and GATE 2026 qualifier passionate about building production-level platforms with'} <span className="gradient-text">{data.descriptionHighlight ? data.descriptionHighlight : 'Next.js, Node.js, and Strapi CMS'}</span>.
           </motion.p>
 
           <motion.div variants={itemVariants} style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
@@ -68,7 +73,7 @@ const Hero = ({data}) => {
             </motion.a>
           </motion.div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px', marginTop: '60px' }}>
-            {data.stats && data.stats.map((item)=>(
+            {statsList.map((item, i) => (
               <motion.div 
                 key={item.id} 
                 variants={itemVariants}
@@ -88,11 +93,11 @@ const Hero = ({data}) => {
                   <motion.span 
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 200, delay: 0.5 }}
+                    transition={{ type: "spring", stiffness: 200, delay: 0.5 + (i * 0.1) }}
                     style={{ 
                       fontSize: '36px', 
                       fontWeight: '900', 
-                      background: 'linear-gradient(to right, var(--accent-primary), var(--text-primary))',
+                      background: i % 2 === 0 ? 'linear-gradient(to right, var(--accent-primary), var(--text-primary))' : 'linear-gradient(to right, var(--accent-secondary), var(--text-primary))',
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       marginBottom: '12px', 
@@ -107,70 +112,6 @@ const Hero = ({data}) => {
                 </div>
               </motion.div>
             ))}
-
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }}>
-              <div className="glow-card" style={{ 
-                  padding: '24px', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  height: '100%', 
-                  justifyContent: 'center',
-                  background: 'linear-gradient(145deg, rgba(20,20,25,0.8) 0%, rgba(10,10,12,0.9) 100%)',
-                  borderTop: '1px solid rgba(255,255,255,0.1)',
-                  borderLeft: '1px solid rgba(255,255,255,0.05)',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)'
-                }}>
-                <motion.span 
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 200, delay: 0.6 }}
-                  style={{ 
-                      fontSize: '36px', 
-                      fontWeight: '900', 
-                      background: 'linear-gradient(to right, var(--accent-secondary), var(--text-primary))',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      marginBottom: '12px', 
-                      lineHeight: '1' 
-                    }}
-                >
-                  GATE
-                </motion.span>
-                <span style={{ fontSize: '13px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700' }}>Qualified</span>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05, y: -5 }}>
-              <div className="glow-card" style={{ 
-                  padding: '24px', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  height: '100%', 
-                  justifyContent: 'center',
-                  background: 'linear-gradient(145deg, rgba(20,20,25,0.8) 0%, rgba(10,10,12,0.9) 100%)',
-                  borderTop: '1px solid rgba(255,255,255,0.1)',
-                  borderLeft: '1px solid rgba(255,255,255,0.05)',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)'
-                }}>
-                <motion.span 
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 200, delay: 0.7 }}
-                  style={{ 
-                      fontSize: '36px', 
-                      fontWeight: '900', 
-                      background: 'linear-gradient(to right, var(--accent-primary), var(--text-primary))',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      marginBottom: '12px', 
-                      lineHeight: '1' 
-                    }}
-                >
-                  4+
-                </motion.span>
-                <span style={{ fontSize: '13px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: '700' }}>Full-stack Projects</span>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -32,13 +32,13 @@ function App() {
   }, [])
 
   
-  const heroSectionData= data.HeroSection;
-  const CotactSectionData= data.ContactSection;
-  const NavbarData= data.Navbar;
-  const ExperienceSectionData = data.ExperienceSection;
-  const footerSectionData=data.footerSection;
-  const ProjectSectionData = data.projectSection;
-  const SkillsSectionData= data.skillsSection;
+  const heroSectionData = data?.HeroSection;
+  const CotactSectionData = data?.ContactSection;
+  const NavbarData = data?.Navbar;
+  const ExperienceSectionData = data?.ExperienceSection;
+  const footerSectionData = data?.footerSection;
+  const ProjectSectionData = data?.projectSection;
+  const SkillsSectionData = data?.skillsSection;
  
 
   return (
