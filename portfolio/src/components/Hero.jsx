@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Download, ExternalLink, Code, Laptop, Terminal, Cpu, Database, Server, Wifi } from 'lucide-react';
+import { ChevronRight, Download, ExternalLink, Code, Laptop, Terminal, Cpu, Database, Server, Wifi, Play } from 'lucide-react';
 
 const Hero = ({data}) => {
   data = data || {};
@@ -71,6 +71,20 @@ const Hero = ({data}) => {
             >
              {data.secondaryButtonText ? data.secondaryButtonText :''} LinkedIn <ExternalLink size={18} />
             </motion.a>
+          </motion.div>
+
+          {/* Introduction Video Section */}
+          <motion.div variants={itemVariants} style={{ marginTop: '60px', width: '100%' }}>
+            <div className="video-wrapper glow-card" style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-active)' }}>
+              {data.introVideoUrl ? (
+                <video src={data.introVideoUrl} controls style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', color: 'var(--accent-primary)' }}>
+                  <Play size={64} style={{ marginBottom: '16px', filter: 'drop-shadow(0 0 10px rgba(0,210,255,0.5))' }} />
+                  <p style={{ fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '14px' }}>Introduction Video Coming Soon</p>
+                </div>
+              )}
+            </div>
           </motion.div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px', marginTop: '60px' }}>
             {statsList.map((item, i) => (
